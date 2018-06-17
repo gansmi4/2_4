@@ -51,7 +51,8 @@ if (!empty($test_success))
     $im = imagecreatetruecolor(565, 800);
     $backColor = imagecolorallocate($im, 255, 224, 221);
     $textColor = imagecolorallocate($im, 0, 0, 0);
-    $fontFile = 'FONT.ttf';
+    putenv('GDFONTPATH=' . realpath('.'));
+    $fontFile = 'FONT';
     $imBox = imagecreatefromjpeg('cover_big.jpg');
     imagefill($im, 0, 0, $backColor);
     imagecopy($im, $imBox, 0, 0, 0, 0, 565, 800);

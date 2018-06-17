@@ -44,6 +44,8 @@ function getUsers()
     $path = 'users.json';
     $fileData = file_get_contents($path);
     $data = json_decode($fileData, true);
+    $data = file_get_contents($link) or exit('Не удалось получить данные');
+    $decodedData = json_decode($data, true) or exit('Ошибка декодирования json');
     if (!$data)
     {
         return [];
