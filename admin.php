@@ -3,7 +3,8 @@ require_once 'core.php';
 if (!isAuthorized())
 {
     location('index');
-    //header('HTTP/1.1 403 incorrect user');
+    header($_SERVER['SERVER_PROTOCOL'] . '403 Forbidden');
+    exit('403 Forbidden');
 }
 if (isset($_POST) && isset($_FILES) && isset($_FILES['testfile'])) {
     $file_name = $_FILES['testfile']['name'];

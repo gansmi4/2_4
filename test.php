@@ -3,7 +3,7 @@ require_once 'core.php';
 $file_list = glob('uploads/*.json');
 $test = [];
 foreach ($file_list as $key => $file) {
-    if ($key == $_GET['test']) {
+    if ($key === $_GET['test']) {
         $file_test = file_get_contents($file_list[$key]);
         $decode_file = json_decode($file_test, true);
         $test = $decode_file;
@@ -11,7 +11,7 @@ foreach ($file_list as $key => $file) {
 }
 // Проверяем массив test, если пустой, то 404
 if (empty($test)) {
-    header("HTTP/1.0 404 Not Found");
+    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     exit;
 }
 $question = $test[0]['question'];
