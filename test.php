@@ -2,6 +2,10 @@
 require_once 'core.php';
 $file_list = glob('uploads/*.json');
 $test = [];
+if (!empty($_GET[‘test’])) {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+    exit;
+}
 foreach ($file_list as $key => $file) {
     if ($key === $_GET['test']) {
         $file_test = file_get_contents($file_list[$key]);

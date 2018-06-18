@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //
 function login($login, $password)
 {
@@ -42,10 +42,8 @@ function userName()
 function getUsers()
 {
     $path = 'users.json';
-    $fileData = file_get_contents($path);
-    $data = json_decode($fileData, true);
-    $data = file_get_contents($link) or exit('Не удалось получить данные');
-    $decodedData = json_decode($data, true) or exit('Ошибка декодирования json');
+    $fileData = file_get_contents($path) or exit('Не удалось получить данные');;
+    $data = json_decode($fileData, true) or exit('Ошибка декодирования json');;
     if (!$data)
     {
         return [];
